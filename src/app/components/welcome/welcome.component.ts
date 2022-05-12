@@ -38,6 +38,8 @@ export class WelcomeComponent implements OnInit {
     this.steps.askForEmail = true;
     this.steps.askToSubscribe = false;
   }
+
+
   updateEmail(emailRef: HTMLInputElement) {
     if (!this.user.email.includes("@") || this.user.email.length < 5) {
       this.steps.subscribedSucces = false;

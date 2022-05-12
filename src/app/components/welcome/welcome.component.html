@@ -27,13 +27,16 @@
       class="inline-input"
       #emailRef
       (input)="user.email = $any($event.target).value"
-      [style.border-bottom-color]="user.email.length < 3 ? 'red' : 'green'"
+      [class]=" !user.email.includes('@') || user.email.length < 5 ? 'invalid':'valid'"
     />
     and
     <button (click)="updateEmail(emailRef)">Click here</button>
   </p>
   <p [hidden]="!error" class="error-message">{{ errorMessage }}</p>
-  <div [hidden]="!steps.subscribedSucces">
+  <div  
+    class="slideIn" 
+    [class.animated]= "steps.subscribedSucces"
+  >
     <h1>You are all set up now!</h1>
     <p>Check Your mailbox for loads of awsome stuff</p>
   </div>
