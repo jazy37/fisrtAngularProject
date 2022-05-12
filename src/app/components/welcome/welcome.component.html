@@ -1,0 +1,40 @@
+<div>
+  <p
+    [hidden]="!steps.showWelcome"
+    [style.font-size.rem]="(3 - user.firstName.length/10)"
+  >
+    Welcome {{ user.firstName | titlecase }}
+  </p>
+  <p [hidden]="!steps.askForFirstName">
+    <label>What's your name? </label>
+    <input
+      #firstNameRef
+      class="inline-input"
+      type="text"
+      (input)="updateName($any($event.target).value)"
+    />
+  </p>
+  <p [hidden]="!steps.askToSubscribe">
+    Would you like to subscribe to our awsome newsletter ?
+    <button (click)="agreedToSubscribed()">Yes</button>
+    <button disabled>No</button>
+  </p>
+  <p [hidden]="!steps.askForEmail">
+    Type your best email
+    <input
+      type="text"
+      placeholder="here"
+      class="inline-input"
+      #emailRef
+      (input)="user.email = $any($event.target).value"
+      [style.border-bottom-color]="user.email.length < 3 ? 'red' : 'green'"
+    />
+    and
+    <button (click)="updateEmail(emailRef)">Click here</button>
+  </p>
+  <p [hidden]="!error" class="error-message">{{ errorMessage }}</p>
+  <div [hidden]="!steps.subscribedSucces">
+    <h1>You are all set up now!</h1>
+    <p>Check Your mailbox for loads of awsome stuff</p>
+  </div>
+</div>

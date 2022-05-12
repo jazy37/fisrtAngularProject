@@ -1,0 +1,17 @@
+.message-error {
+  color: red;
+}
+.inline-input {
+  display: inline-block;
+  border: none;
+  border-bottom: 1px dashed gray;
+  width: 150px;
+}
+.inline-input:focus {
+  outline: none;
+  border-bottom: 1px solid darkblue;
+}
+.error-message {
+  color: red;
+  font-weight: 600;
+}
